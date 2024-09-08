@@ -6,7 +6,7 @@ int partition(int T[], int bas, int haut) {
     int pivot = T[haut];
     int i = (bas-1), j;
     for(j=bas; j<haut; j++) {
-        if(T[j] <= pivot) { // pour un tri décroissant : T[j] >= pivot 
+        if(T[j] <= pivot) { // pour un tri décroissant : T[j] <= pivot 
             i++;
             int temp = T[i];
             T[i] = T[j];
