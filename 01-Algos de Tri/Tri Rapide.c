@@ -6,16 +6,16 @@ int partition(int T[], int bas, int haut) {
     int pivot = T[haut];
     int i = (bas-1), j;
     for(j=bas; j<haut; j++) {
-        if(T[j] <= pivot) { // pour un tri décroissant : T[j] <= pivot 
+        if(T[j] <= pivot) { // pour un tri décroissant : T[j] >= pivot 
             i++;
             int temp = T[i];
             T[i] = T[j];
             T[j] = temp;
         }
-    }
-    int temp = T[i];
-    T[i] = T[j];
-    T[j] = temp;
+    }    
+    int temp = T[i+1];
+    T[i+1] = T[haut];
+    T[haut] = temp;
     return i+1;
 }
 
@@ -28,26 +28,27 @@ void triRapide(int T[], int bas, int haut) {
     }
 }
 
+// afficher les éléments du tableau passé en paramètres
+void affichage(int T[], int taille) {
+    for(int i=0; i<taille; i++) {
+        printf("%d ", T[i]);
+    }
+}
+
 int main() {
 
     int T[] = {5, 3, 43, -1, 0};
     int i, j, indice;
     int taille = (sizeof(T) / sizeof(int)); // Calcul de la taille du tableau T
 
-    // Tri avant tri
-    printf("Tableau avant tri: \n");
-    for(i=0; i<taille; i++) {
-        printf("%d ", T[i]);
-    }
+    // Tableau avant tri
+    affichage(T, taille);
 
     // Tri Rapide
     triRapide(T, 0, taille-1);
     
-    // Tri après tri
-    printf("\nTableau après tri: \n");
-    for(i=0; i<taille; i++) {
-        printf("%d ", T[i]);
-    }
+    // Tableau après tri
+    affichage(T, taille);
 
     return 0;
 }
