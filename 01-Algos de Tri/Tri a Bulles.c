@@ -6,7 +6,7 @@ int main() {
     int i, j, temp;
     int taille = (sizeof(T)/sizeof(int));
 
-    // Tri avant tri
+    // Tableau avant tri
     printf("Tableau avant tri: \n");
     for(i=0; i<taille; i++) {
         printf("%d ", T[i]);
@@ -23,7 +23,7 @@ int main() {
         }
     }
 
-    // Tri après tri
+    // Tableau après tri
     printf("\nTableau après tri: \n");
     for(i=0; i<taille; i++) {
         printf("%d ", T[i]);
